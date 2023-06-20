@@ -1,0 +1,140 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+
+public class CSVUploader {
+    private static final String CSV_FILE_PATH = "path/to/csv/file.csv";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/database_name";
+    private static final String DB_USERNAME = "username";
+    private static final String DB_PASSWORD = "password";
+
+    public static void main(String[] args) {
+        try {
+            Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+
+            BufferedReader br = new BufferedReader(new FileReader(CSV_FILE_PATH));
+            String line;
+            int validationErrors = 0;
+            int duplicateRecords = 0;
+            int successRecords = 0;
+
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split(",");
+
+                String userName = data[0];
+                String emailAddress = data[1];
+                String phoneNumber = data[2];
+
+                if (!validateData(userName, emailAddress, phoneNumber)) {
+                    validationErrors++;
+                    continue; 
+                }
+
+                boolean userExists = checkUserExists(connection, userName, emailAddress, phoneNumber);
+
+                if (userExists) {
+                    duplicateRecords++;
+                    
+                    updateUserIfDifferent(connection, userName, emailAddress, phoneNumber);
+                } else {
+                    addUser(connection, userName, emailAddress, phoneNumber);
+                }
+
+                successRecords++;
+            }
+
+            br.close();
+            connection.close();
+
+            generateReport(validationErrors, duplicateRecords, successRecords);
+        } catch (IOException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static boolean validateData(String userName, String emailAddress, String phoneNumber) {
+
+        return true;
+    }
+
+    private static boolean checkUserExists(Connection connection, String userName, String emailAddress,
+            String phoneNumber) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM users WHERE userName = ? OR emailAddress = ? OR phoneNumber = ?";
+        
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setString(1, userName);
+        statement.setString(2, emailAddress);
+        statement.setString(3, phoneNumber);
+
+        ResultSet resultSet = statement.executeQuery();
+        resultSet.next();
+
+        int count = resultSet.getInt(1);
+
+        resultSet.close();
+        statement.close();
+
+        return count > 0;
+    }
+
+    private static void updateUserIfDifferent(Connection connection, String userName, String emailAddress,
+            String phoneNumber) throws SQLException {
+        String sql = "SELECT * FROM users WHERE userName = ? OR emailAddress = ? OR phoneNumber = ?";
+        
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setString(1, userName);
+        statement.setString(2, emailAddress);
+        statement.setString(3, phoneNumber);
+
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()) {
+            String existingUserName = resultSet.getString("userName");
+            String existingEmailAddress = resultSet.getString("emailAddress");
+            String existingPhoneNumber = resultSet.getString("phoneNumber");
+
+            if (!userName.equals(existingUserName) || !emailAddress.equals(existingEmailAddress)
+                    || !phoneNumber.equals(existingPhoneNumber)) {
+                String updateSql = "UPDATE users SET userName = ?, emailAddress = ?, phoneNumber = ? WHERE userName = ?";
+
+                PreparedStatement updateStatement = connection.prepareStatement(updateSql);
+                updateStatement.setString(1, userName);
+                updateStatement.setString(2, emailAddress);
+                updateStatement.setString(3, phoneNumber);
+                updateStatement.setString(4, existingUserName);
+
+                updateStatement.executeUpdate();
+
+                updateStatement.close();
+            }
+        }
+
+        resultSet.close();
+        statement.close();
+    }
+
+    private static void addUser(Connection connection, String userName, String emailAddress, String phoneNumber)
+            throws SQLException {
+        String sql = "INSERT INTO users (userName, emailAddress, phoneNumber) VALUES (?, ?, ?)";
+
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setString(1, userName);
+        statement.setString(2, emailAddress);
+        statement.setString(3, phoneNumber);
+
+        statement.executeUpdate();
+        statement.close();
+    }
+
+    private static void generateReport(int validationErrors, int duplicateRecords, int successRecords) {
+        System.out.println("Validation Errors: " + validationErrors);
+        System.out.println("Duplicate Records: " + duplicateRecords);
+        System.out.println("Success Records: " + successRecords);
+    }
+}
