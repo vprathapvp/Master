@@ -1,0 +1,32 @@
+<!-- res/layout/fragment_gallery.xml -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="Home"
+            android:textSize="35dp"
+            android:background="@color/blue"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <VideoView
+            android:id="@+id/v1"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginBottom="40dp"/>
+
+
+        <!-- Add more VideoView elements as needed -->
+
+    </RelativeLayout>
+</ScrollView>

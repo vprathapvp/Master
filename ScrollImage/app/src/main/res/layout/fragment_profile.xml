@@ -1,0 +1,111 @@
+<!-- res/layout/fragment_gallery.xml -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/dark_blue"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@color/blue"
+            android:gravity="center"
+            android:text="Profile"
+            android:textColor="@color/black"
+            android:textSize="35dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="Dhivakar Raghul"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="vdhivakar24@gmail.com"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="History"
+            android:textSize="25dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+        <ImageView
+            android:layout_width="1.5in"
+            android:layout_height=".5in"
+            android:src="@drawable/t1"
+            android:layout_margin="10dp"/>
+
+        <ImageView
+            android:layout_width="1.5in"
+            android:layout_height=".5in"
+            android:layout_margin="10dp"
+            android:src="@drawable/t2" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Playlists"
+            android:textSize="25dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:layout_width="1.5in"
+            android:layout_height=".5in"
+            android:src="@drawable/t3"
+            android:layout_margin="10dp"/>
+        <ImageView
+            android:layout_width="1.5in"
+            android:layout_height=".5in"
+            android:src="@drawable/t4"
+            android:layout_margin="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Downloads"
+            android:layout_margin="10dp"
+            android:textSize="25dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:text="Your Videos"
+            android:textSize="25dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Playlists"
+            android:textSize="25dp"
+            android:textColor="@color/white"
+            android:layout_margin="10dp"
+            android:textStyle="bold"/>
+
+
+
+    </LinearLayout>
+
+
+    <!-- Add other views/content as needed -->
+
+</ScrollView>
