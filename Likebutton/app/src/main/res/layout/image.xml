@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/youtubeLikeTextView"
+        android:layout_width="338dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:background="#C54242"
+        android:lineBreakStyle="normal"
+        android:lineSpacingExtra="500dp"
+        android:text="YOUTUBE"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="34sp"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/youtubeLikeTextView">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/public_domain_images_free_high_resolution_quality_photos_unsplash_0207_nv" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageButton
+                    android:id="@+id/likeButton1"
+                    android:layout_width="50dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/like_button"
+                    android:background="@android:color/transparent"
+                    android:onClick="likeClicked" />
+
+                <TextView
+                    android:id="@+id/likeCountTextView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/dislikeButton1"
+                    android:layout_width="50dp"
+                    android:layout_height="48dp"
+                    android:background="@android:color/transparent"
+                    android:onClick="dislikeClicked"
+                    android:src="@drawable/dislike_button" />
+
+                <TextView
+                    android:id="@+id/dislikeCountTextView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="20sp" />
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/photo_1503023345310_bd7c1de61c7d_scaled_e1625754556765_1024x683" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageButton
+                    android:id="@+id/likeButton2"
+                    android:layout_width="50dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/like_button"
+                    android:background="@android:color/transparent"
+                    android:onClick="likeClicked" />
+
+                <TextView
+                    android:id="@+id/likeCountTextView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/dislikeButton2"
+                    android:layout_width="50dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/dislike_button"
+                    android:background="@android:color/transparent"
+                    android:onClick="dislikeClicked" />
+
+                <TextView
+                    android:id="@+id/dislikeCountTextView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="20sp" />
+
+
+            </LinearLayout>
+            <!-- Add more ImageViews and buttons as needed -->
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/r" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageButton
+                    android:id="@+id/likeButton3"
+                    android:layout_width="50dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/like_button"
+                    android:background="@android:color/transparent"
+                    android:onClick="likeClicked" />
+
+                <TextView
+                    android:id="@+id/likeCountTextView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/dislikeButton3"
+                    android:layout_width="50dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/dislike_button"
+                    android:background="@android:color/transparent"
+                    android:onClick="dislikeClicked" />
+
+                <TextView
+                    android:id="@+id/dislikeCountTextView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="20sp" />
+
+
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/tree_736885_1920" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageButton
+                    android:id="@+id/likeButton4"
+                    android:layout_width="50dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/like_button"
+                    android:background="@android:color/transparent"
+                    android:onClick="likeClicked" />
+
+                <TextView
+                    android:id="@+id/likeCountTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/dislikeButton4"
+                    android:layout_width="50dp"
+                    android:layout_height="48dp"
+                    android:background="@android:color/transparent"
+                    android:onClick="dislikeClicked"
+                    android:src="@drawable/dislike_button" />
+
+                <TextView
+                    android:id="@+id/dislikeCountTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="20sp" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
