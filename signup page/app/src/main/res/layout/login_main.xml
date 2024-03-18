@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewfirstname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Firstname"
+        android:padding="5dp"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"/>
+
+    <EditText
+        android:id="@+id/editTextfirstname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your username"
+        android:padding="15dp"
+        android:inputType="text"
+        android:layout_toEndOf="@id/textViewfirstname"
+        android:layout_toRightOf="@id/textViewfirstname"/>
+    <TextView
+        android:id="@+id/textViewlastname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lastname"
+        android:padding="5dp"
+        android:textSize="18sp"
+        android:layout_below="@id/editTextfirstname"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"/>
+    <EditText
+        android:id="@+id/editTextlastname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your lastname"
+        android:padding="15dp"
+        android:inputType="text"
+        android:layout_below="@id/editTextfirstname"
+        android:layout_toEndOf="@id/textViewlastname"
+        android:layout_toRightOf="@id/textViewlastname"/>
+
+    <TextView
+        android:id="@+id/textViewEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:padding="5dp"
+        android:textSize="18sp"
+        android:layout_below="@id/editTextlastname"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"/>
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your email"
+        android:padding="15dp"
+        android:inputType="textEmailAddress"
+        android:layout_below="@id/editTextlastname"
+        android:layout_toEndOf="@id/textViewEmail"
+        android:layout_toRightOf="@id/textViewEmail"/>
+    <TextView
+        android:id="@+id/textViewgender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="Gender"
+        android:textSize="18sp"
+        android:layout_below="@id/editTextEmail"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"/>
+
+    <RadioGroup
+        android:id="@+id/genderRadioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextEmail"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+
+        android:layout_toEndOf="@id/textViewgender"
+        android:layout_toRightOf="@id/textViewgender">
+
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="Male" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="Female" />
+    </RadioGroup>
+
+
+
+
+    <TextView
+        android:id="@+id/textViewaddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address"
+        android:padding="15dp"
+        android:textSize="18sp"
+        android:layout_below="@id/textViewgender"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"/>
+    <EditText
+        android:id="@+id/editTextaddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:padding="15dp"
+        android:layout_below="@id/genderRadioGroup"
+        android:layout_toEndOf="@id/textViewaddress"
+        android:layout_toRightOf="@id/textViewaddress"/>
+    <TextView
+        android:id="@+id/textViewDateofbirth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date Of Birth"
+        android:padding="8dp"
+        android:textSize="18sp"
+        android:layout_below="@id/textViewaddress"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"/>
+
+
+    <EditText
+        android:id="@+id/editTextDOB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextaddress"
+        android:padding="20dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_toEndOf="@id/textViewDateofbirth"
+        android:layout_toRightOf="@id/textViewDateofbirth"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="Select Date of Birth" />
+
+    <TextView
+        android:id="@+id/textViewPassword1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewDateofbirth"
+        android:padding="5dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="-2dp"
+        android:layout_marginLeft="-2dp"
+        android:layout_marginTop="22dp"
+        android:text="Password"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/editTextPassword1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:hint="Enter your password"
+        android:inputType="textPassword"
+        android:layout_below="@id/editTextDOB"
+        android:layout_toEndOf="@id/textViewPassword1"
+        android:layout_toRightOf="@id/textViewPassword1"/>
+
+    <TextView
+        android:id="@+id/textViewPassword2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewPassword1"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="-2dp"
+        android:layout_marginLeft="-2dp"
+        android:layout_marginTop="10dp"
+        android:padding="15dp"
+        android:text="Confirm Password"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/editTextPassword2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextPassword1"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="14dp"
+        android:layout_toEndOf="@id/textViewPassword2"
+        android:layout_toRightOf="@id/textViewPassword2"
+        android:hint="Enter your password"
+        android:inputType="textPassword"
+        android:padding="15dp" />
+
+    <Button
+        android:id="@+id/buttonSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:text="Sign Up"
+        android:layout_below="@id/editTextPassword2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"/>
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/success_page" />
+
+</RelativeLayout>
