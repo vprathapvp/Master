@@ -1,4 +1,3 @@
-
 package com.dhivakar.scrollimage;
 import android.Manifest;
 import android.app.Activity;
@@ -35,15 +34,15 @@ public class AddFragment extends Fragment {
     private static final int REQUEST_CODE = 100;
     private static final int REQUEST_PERMISSIONS = 1001;
 
-    private Button selectVideoButton;
+    private Button Button;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_add, container, false);
 
-        selectVideoButton = rootView.findViewById(R.id.selectVideoButton);
-        selectVideoButton.setOnClickListener(new View.OnClickListener() {
+        Button = rootView.findViewById(R.id.Button);
+        Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 selectVideo();
@@ -91,7 +90,7 @@ public class AddFragment extends Fragment {
             }
 
             // Specify the custom folder name
-            String customFolderName = "Dhivakar";
+            String customFolderName = "Bala";
             File storageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES), customFolderName);
             if (!storageDir.exists()) {
                 if (!storageDir.mkdirs()) {
