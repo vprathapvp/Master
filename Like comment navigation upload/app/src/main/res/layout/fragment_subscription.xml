@@ -1,0 +1,77 @@
+<!-- res/layout/fragment_gallery.xml -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/black">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Subscription"
+            android:textSize="35dp"
+            android:background="@color/dark_blue"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+
+
+        <ImageView
+            android:id="@+id/i1"
+            android:layout_width="match_parent"
+            android:layout_height="1.5in"
+            android:scaleType="fitXY"
+            android:src="@drawable/t6"
+            android:layout_margin="10dp"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1.5in"
+            android:layout_below="@id/i1"
+            android:scaleType="fitXY"
+            android:src="@drawable/t5"
+            android:layout_margin="10dp"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1.5in"
+            android:layout_below="@id/i1"
+            android:scaleType="fitXY"
+            android:src="@drawable/t4"
+            android:layout_margin="10dp"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1.5in"
+            android:layout_below="@id/i1"
+            android:scaleType="fitXY"
+            android:src="@drawable/t3"
+            android:layout_margin="10dp"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1.5in"
+            android:layout_below="@id/i1"
+            android:scaleType="fitXY"
+            android:src="@drawable/t2"
+            android:layout_margin="10dp"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1.5in"
+            android:layout_below="@id/i1"
+            android:scaleType="fitXY"
+            android:src="@drawable/t1"
+            android:layout_margin="10dp"/>
+
+    </LinearLayout>
+
+
+    <!-- Add other views/content as needed -->
+
+</ScrollView>
