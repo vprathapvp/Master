@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <gradient
-
-        android:startColor="#3A3F9F"
-        android:endColor="#6672FF"
-        android:angle="90"/>             <!-- Angle for the gradient (90 degrees for top to bottom) -->
-</shape>
