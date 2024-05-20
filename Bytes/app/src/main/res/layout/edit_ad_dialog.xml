@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subscription"
+        android:textStyle="bold"
+        android:textColor="#2f3363"
+        android:textSize="18sp"/>
+
+    <EditText
+        android:id="@+id/editTextSubscription"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/edittext"/>
+
+    <TextView
+        android:id="@+id/distanceRange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Distance Range"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#2f3363"/>
+
+    <EditText
+        android:id="@+id/editTextDistanceRange"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/edittext"/>
+
+    <TextView
+        android:id="@+id/latitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Latitude"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#2f3363"/>
+
+    <EditText
+        android:id="@+id/editTextLatitude"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/edittext"/>
+
+    <TextView
+        android:id="@+id/longitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Longitude"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#2f3363"/>
+
+    <EditText
+        android:id="@+id/editTextLongitude"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/edittext"/>
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Email"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#2f3363"/>
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/edittext"/>
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center"
+        android:text="Save"
+        android:textColor="#ffffff"
+        android:background="@drawable/background_btn_2"/>
+
+</LinearLayout>

@@ -1,0 +1,168 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Like Button -->
+
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true" />
+
+    <ImageButton
+        android:id="@+id/btnLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_thumb_up"
+        android:background="@android:color/transparent"/>
+
+    <!-- Like Count -->
+    <TextView
+        android:id="@+id/likeCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="72dp"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textSize="20dp" />
+
+    <!-- Dislike Button -->
+    <ImageButton
+        android:id="@+id/btnDislike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="360dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_thumb_down"
+        android:background="@android:color/transparent"/>
+
+    <!-- Dislike Count -->
+    <TextView
+        android:id="@+id/dislikeCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="360dp"
+        android:layout_marginEnd="72dp"
+        android:text=""
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:textSize="20dp" />
+    <!-- Comment Button -->
+    <ImageButton
+        android:id="@+id/btnComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="420dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_comment"
+        android:background="@android:color/transparent"/>
+
+
+    <TextView
+        android:id="@+id/commentCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="420dp"
+        android:layout_marginEnd="72dp"
+        android:text=""
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:textSize="20dp" />
+
+    <ImageButton
+        android:id="@+id/btnShare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="480dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/send"
+        android:background="@android:color/transparent"/>
+
+    <ImageButton
+        android:id="@+id/btnDownload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="540dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/download"
+        android:background="@android:color/transparent"/>
+
+    <ImageButton
+        android:id="@+id/btnview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="600dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/views"
+        android:background="@android:color/transparent"/>
+    <TextView
+        android:id="@+id/viewcount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="600dp"
+        android:layout_marginEnd="72dp"
+        android:text=""
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:textSize="20dp" />
+    <TextView
+        android:id="@+id/tvfname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="530dp"
+        android:layout_marginEnd="72dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:textSize="20dp" />
+    <TextView
+        android:id="@+id/tvlname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="550dp"
+        android:layout_marginEnd="72dp"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="580dp"
+        android:layout_marginEnd="72dp"
+        android:text=""
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/tvdescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="600dp"
+        android:layout_marginEnd="72dp"
+        android:text=""
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:textSize="20dp" />
+
+
+
+
+</FrameLayout>

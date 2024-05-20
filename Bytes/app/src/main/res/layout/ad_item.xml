@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp">
+
+    <!-- Ad ID Label -->
+    <TextView
+        android:id="@+id/adIdLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="Ad ID"
+        android:textStyle="bold"
+        android:textColor="#2f3363"
+        android:textSize="18sp"/>
+
+    <!-- Ad ID Value -->
+    <TextView
+        android:id="@+id/adIdTextView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/adIdLabel"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/edittext"/>
+
+    <!-- Ad URL Label -->
+    <TextView
+        android:id="@+id/adUrlLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/adIdTextView"
+        android:layout_marginTop="8dp"
+        android:text="Ad URL"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#2f3363"/>
+
+    <!-- Ad URL Value -->
+    <TextView
+        android:id="@+id/adUrlTextView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/adUrlLabel"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/edittext"/>
+
+    <!-- Distance Range Label -->
+    <TextView
+        android:id="@+id/distanceRangeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/adUrlTextView"
+        android:layout_marginTop="8dp"
+        android:text="Distance Range"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#2f3363"/>
+
+    <!-- Distance Range Value -->
+    <TextView
+        android:id="@+id/distanceRangeValueTextView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/distanceRangeLabel"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/edittext"/>
+
+    <!-- Payment Amount Label -->
+    <TextView
+        android:id="@+id/paymentAmountLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/distanceRangeValueTextView"
+        android:layout_marginTop="8dp"
+        android:text="Payment Amount"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#2f3363"/>
+
+    <!-- Payment Amount Value -->
+    <TextView
+        android:id="@+id/paymentAmountValueTextView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/paymentAmountLabel"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/edittext"/>
+
+    <!-- Subscription Label -->
+    <TextView
+        android:id="@+id/subscriptionLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/paymentAmountValueTextView"
+        android:layout_marginTop="8dp"
+        android:text="Subscription"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#2f3363"/>
+
+    <!-- Subscription Value -->
+    <TextView
+        android:id="@+id/subscriptionValueTextView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/subscriptionLabel"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/edittext"/>
+
+    <!-- Buttons Layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/subscriptionValueTextView"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <!-- Edit Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/editButton"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:text="Edit Ad"
+            android:textColor="@color/black"
+            android:background="@drawable/background_btn"/>
+
+        <!-- Delete Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/deleteButton"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:text="Delete Ad"
+            android:textColor="@color/black"
+            android:background="@drawable/background_btn" />
+    </LinearLayout>
+
+</RelativeLayout>
