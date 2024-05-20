@@ -181,7 +181,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="300dp"
         android:layout_marginLeft="160dp"
-        style="?android:attr/progressBarStyleLarge" />
+        style="?android:attr/progressBarStyleLarge"
+        android:visibility="gone"/>
 
 
 </RelativeLayout>

@@ -15,6 +15,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.ngltech.bytes.R;
+import com.ngltech.bytes.Config;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -62,6 +63,12 @@ public class SearchActivity extends AppCompatActivity {
                 }
             }
         });
+
+        // Perform search when the activity is created
+        String initialKeyword = searchEditText.getText().toString().trim();
+        if (!initialKeyword.isEmpty()) {
+            searchVideos(initialKeyword);
+        }
     }
 
     private void searchVideos(String keyword) {
@@ -72,7 +79,7 @@ public class SearchActivity extends AppCompatActivity {
                     SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                     String token = sharedPreferences.getString("token", "");
 
-                    URL url = new URL("http://192.168.184.71:8090/api/search/" + keyword);
+                    URL url = new URL(Config.BASE_URL + "/api/search/" + keyword);
                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                     connection.setRequestMethod("GET");
                     connection.setRequestProperty("Authorization", "Bearer " + token);
@@ -95,7 +102,7 @@ public class SearchActivity extends AppCompatActivity {
 
                             // For other fields like likeCount, dislikeCount, etc., you can set default values if needed
 
-                            VideoDetails videoDetails = new VideoDetails( videoUrl, name, description);
+                            VideoDetails videoDetails = new VideoDetails(videoUrl, name, description);
                             searchResults.add(videoDetails);
                         }
 
@@ -104,9 +111,7 @@ public class SearchActivity extends AppCompatActivity {
                             @Override
                             public void run() {
                                 videoDetailsList.clear();
-                                for (VideoDetails videoDetails : searchResults) {
-                                    videoDetailsList.add(videoDetails);
-                                }
+                                videoDetailsList.addAll(searchResults);
                                 pagerAdapter.notifyDataSetChanged();
                                 viewPager.setCurrentItem(0); // Reset ViewPager to first position
                             }
@@ -140,12 +145,10 @@ public class SearchActivity extends AppCompatActivity {
         private String description;
 
         public VideoDetails(String videoUrl, String name, String description) {
-
             this.videoUrl = videoUrl;
             this.name = name;
             this.description = description;
         }
-
 
         public String getVideoUrl() {
             return videoUrl;
@@ -186,7 +189,6 @@ public class SearchActivity extends AppCompatActivity {
             if (position >= 0 && position < videoDetailsList.size()) {
                 VideoDetails videoDetails = videoDetailsList.get(position);
                 return VideoFragment.newInstance(videoDetails.getVideoUrl(), videoDetails.getName(), videoDetails.getDescription(), "", "", "", "");
-
             } else {
                 return null;
             }

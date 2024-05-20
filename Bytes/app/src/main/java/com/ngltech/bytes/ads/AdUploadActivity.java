@@ -28,6 +28,7 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.ngltech.bytes.Config;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -121,7 +122,7 @@ public class AdUploadActivity extends AppCompatActivity {
 
         buttonSelectVideo.setOnClickListener(v -> openVideoChooser());
         buttonUpload.setOnClickListener(v -> {
-            // Show progress bar
+
 
 
             // Check location permissions and fetch location
@@ -326,7 +327,7 @@ public class AdUploadActivity extends AppCompatActivity {
         }
 
         private Pair<Integer, String> uploadToServer(String email, String subscription, String distanceRange, Uri videoUri, String latitude, String longitude, String token) {
-            String targetURL = "http://192.168.184.71:8090/business/upload-ad";
+            String targetURL = Config.BASE_URL + "/business/upload-ad";
 
             try {
                 HttpURLConnection connection = (HttpURLConnection) new URL(targetURL).openConnection();

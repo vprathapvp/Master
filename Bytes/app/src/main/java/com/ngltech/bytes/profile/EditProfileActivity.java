@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.ngltech.bytes.R;
+import com.ngltech.bytes.Config;
 import com.ngltech.bytes.login.ForgotPasswordActivity;
 
 import org.json.JSONException;
@@ -52,8 +53,8 @@ public class EditProfileActivity extends AppCompatActivity {
     private LocationManager locationManager;
     private LocationListener locationListener;
 
-    private static final String API_URL = "http://192.168.184.71:8090/update-profile/";
-    private static final String FETCH_URL = "http://192.168.184.71:8090/profile/";
+    private static final String API_URL = Config.BASE_URL + "/update-profile/";
+    private static final String FETCH_URL = Config.BASE_URL + "/profile/";
 
     private boolean locationFetched = false; // Boolean flag to track whether location has been fetched
 

@@ -25,6 +25,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.ngltech.bytes.Config;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -271,7 +272,7 @@ public class AddFragment extends Fragment {
         }
 
         private Integer uploadToServer(String email, String description, Uri videoUri, String latitude, String longitude, String token) {
-            String targetURL = "http://192.168.184.71:8090/api/upload";
+            String targetURL = Config.BASE_URL + "/api/upload";
 
             try {
                 HttpURLConnection connection = (HttpURLConnection) new URL(targetURL).openConnection();

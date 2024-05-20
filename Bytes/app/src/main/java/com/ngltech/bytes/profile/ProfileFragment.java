@@ -26,6 +26,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.ngltech.bytes.R;
+import com.ngltech.bytes.Config;
 import com.ngltech.bytes.login.LoginActivity;
 
 import org.json.JSONException;
@@ -238,7 +239,7 @@ public class ProfileFragment extends Fragment {
     // Method to delete the user account via API call to Spring Boot server
     private void deleteAccount() {
         String email = emailEditText.getText().toString().trim();
-        String apiUrl = "http://192.168.184.71:8090/delete-profile/" + email; // Replace with your actual API endpoint
+        String apiUrl = Config.BASE_URL + "/delete-profile/" + email; // Replace with your actual API endpoint
 
         // Retrieve token from SharedPreferences
         SharedPreferences sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
@@ -301,7 +302,7 @@ public class ProfileFragment extends Fragment {
 
     // Method to fetch user information via API call to Spring Boot server
     private void fetchUserInfo(String email) {
-        String apiUrl = "http://192.168.184.71:8090/profile/" + email; // Replace with your actual API endpoint
+        String apiUrl = Config.BASE_URL + "/profile/" + email; // Replace with your actual API endpoint
 
         // Retrieve token from SharedPreferences
         SharedPreferences sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
@@ -369,7 +370,7 @@ public class ProfileFragment extends Fragment {
 
     private void uploadProfileImageToServer(Bitmap bitmap) {
         String email = emailEditText.getText().toString().trim();
-        String apiUrl = "http://192.168.184.71:8090/upload-profile/" + email; // Replace with your actual backend URL
+        String apiUrl = Config.BASE_URL + "/upload-profile/" + email; // Replace with your actual backend URL
 
         // Retrieve token from SharedPreferences
         SharedPreferences sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);

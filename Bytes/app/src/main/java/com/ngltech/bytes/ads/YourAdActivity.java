@@ -1,6 +1,7 @@
 package com.ngltech.bytes.ads;
 
 import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,16 +16,16 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.content.ActivityNotFoundException;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.ngltech.bytes.Config;
 import com.ngltech.bytes.R;
-import com.ngltech.bytes.profile.UploadActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,11 +34,10 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-
+import java.util.List;
 public class YourAdActivity extends AppCompatActivity {
 
     private ListView listView;
@@ -82,7 +82,7 @@ public class YourAdActivity extends AppCompatActivity {
             public void run() {
                 try {
                     // Construct the URL with email included as a request parameter
-                    URL url = new URL("http://192.168.184.71:8090/business/api/ads-by-email?email=" + email);
+                    URL url = new URL(Config.BASE_URL + "/business/api/ads-by-email?email=" + email);
                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                     connection.setRequestMethod("GET");
 
@@ -110,7 +110,9 @@ public class YourAdActivity extends AppCompatActivity {
                             String distanceRange = jsonObject.getString("distance_range");
                             String paymentAmount = jsonObject.getString("payment_amount");
                             String subscription = jsonObject.getString("subscription");
-                            String adInfo = "Ad ID: " + adId + "\n" + "Ad URL: " + adUrl + "\n" + "Distance Range: " + distanceRange + "\n" + "Payment Amount: " + paymentAmount + "\n" + "Subscription: " + subscription;
+                            String latitude = jsonObject.getString("latitude");
+                            String longitude = jsonObject.getString("longitude");
+                            String adInfo = "Ad ID: " + adId + "\n" + "Ad URL: " + adUrl + "\n" + "Distance Range: " + distanceRange + "\n" + "Payment Amount: " + paymentAmount + "\n" + "Subscription: " + subscription + "\n" + "Latitude: " + latitude + "\n" + "Longitude: " + longitude;
                             adInfos.add(adInfo);
                         }
 
@@ -163,6 +165,8 @@ public class YourAdActivity extends AppCompatActivity {
             TextView distanceRangeTextView = convertView.findViewById(R.id.distanceRangeValueTextView);
             TextView paymentAmountTextView = convertView.findViewById(R.id.paymentAmountValueTextView);
             TextView subscriptionTextView = convertView.findViewById(R.id.subscriptionValueTextView);
+            TextView latitudeTextView = convertView.findViewById(R.id.latitudeValueTextView);
+            TextView longitudeTextView = convertView.findViewById(R.id.longitudeValueTextView);
             Button editButton = convertView.findViewById(R.id.editButton);
             Button deleteButton = convertView.findViewById(R.id.deleteButton);
 
@@ -175,6 +179,8 @@ public class YourAdActivity extends AppCompatActivity {
             String distanceRange = parts[2].substring(parts[2].indexOf(": ") + 2);
             String paymentAmount = parts[3].substring(parts[3].indexOf(": ") + 2);
             String subscription = parts[4].substring(parts[4].indexOf(": ") + 2);
+            String latitude = parts[5].substring(parts[5].indexOf(": ") + 2);
+            String longitude = parts[6].substring(parts[6].indexOf(": ") + 2);
 
             // Set ad details to the TextViews
             adIdTextView.setText(adId);
@@ -182,6 +188,8 @@ public class YourAdActivity extends AppCompatActivity {
             distanceRangeTextView.setText(distanceRange);
             paymentAmountTextView.setText(paymentAmount);
             subscriptionTextView.setText(subscription);
+            latitudeTextView.setText(latitude);
+            longitudeTextView.setText(longitude);
 
             // Edit Button Click Listener
             editButton.setOnClickListener(new View.OnClickListener() {
@@ -221,7 +229,6 @@ public class YourAdActivity extends AppCompatActivity {
         }
     }
 
-
     private void deleteAd(final int position) {
         String adInfo = adInfos.get(position);
         String[] parts = adInfo.split("\n");
@@ -235,7 +242,7 @@ public class YourAdActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    URL url = new URL("http://192.168.184.71:8090/business/api/ad/" + adId);
+                    URL url = new URL(Config.BASE_URL + "/business/api/ad/" + adId);
                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                     connection.setRequestMethod("DELETE");
                     connection.setRequestProperty("Authorization", "Bearer " + token);
@@ -284,7 +291,6 @@ public class YourAdActivity extends AppCompatActivity {
         }).start();
     }
 
-
     private String extractVideoId(String videoUrl) {
         String[] parts = videoUrl.split("/");
         return parts[parts.length - 1];
@@ -293,19 +299,57 @@ public class YourAdActivity extends AppCompatActivity {
     private void openEditDialog(final int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(YourAdActivity.this);
         View dialogView = getLayoutInflater().inflate(R.layout.edit_ad_dialog, null);
-        final EditText editTextSubscription = dialogView.findViewById(R.id.editTextSubscription);
-        final EditText editTextDistanceRange = dialogView.findViewById(R.id.editTextDistanceRange);
+
         final EditText editTextLatitude = dialogView.findViewById(R.id.editTextLatitude);
         final EditText editTextLongitude = dialogView.findViewById(R.id.editTextLongitude);
         final EditText editTextEmail = dialogView.findViewById(R.id.editTextEmail);
+        Spinner spinnerSubscription = dialogView.findViewById(R.id.spinnerSubscription);
+        Spinner spinnerDistanceRange = dialogView.findViewById(R.id.spinnerDistanceRange);
         Button saveButton = dialogView.findViewById(R.id.saveButton);
 
+        // Set up Subscription Spinner
+        List<String> subscriptionItems = new ArrayList<>();
+        subscriptionItems.add("Monthly");
+        subscriptionItems.add("Quarterly");
+        subscriptionItems.add("Half-yearly");
+        subscriptionItems.add("Annual");
+        ArrayAdapter<String> subscriptionAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, subscriptionItems);
+        subscriptionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerSubscription.setAdapter(subscriptionAdapter);
+
+        // Set up Distance Range Spinner
+        List<String> distanceItems = new ArrayList<>();
+        distanceItems.add("20km");
+        distanceItems.add("50km");
+        distanceItems.add("80km");
+        distanceItems.add("200km");
+        ArrayAdapter<String> distanceAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, distanceItems);
+        distanceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerDistanceRange.setAdapter(distanceAdapter);
+
+        // Get current ad info
         String adInfo = adInfos.get(position);
         String[] parts = adInfo.split("\n");
-        String subscription = parts[4].substring(parts[4].indexOf(": ") + 2);
-        String distanceRange = parts[2].substring(parts[2].indexOf(": ") + 2);
-        editTextSubscription.setText(subscription);
-        editTextDistanceRange.setText(distanceRange);
+        String currentSubscription = parts[4].substring(parts[4].indexOf(": ") + 2);
+        String currentDistanceRange = parts[2].substring(parts[2].indexOf(": ") + 2);
+        String latitude = parts[5].substring(parts[5].indexOf(": ") + 2);
+        String longitude = parts[6].substring(parts[6].indexOf(": ") + 2);
+
+        // Set current values to EditText and Spinner
+        editTextLatitude.setText(latitude);
+        editTextLongitude.setText(longitude);
+
+        // Set current selection for spinners
+        int subscriptionPosition = subscriptionAdapter.getPosition(currentSubscription);
+        spinnerSubscription.setSelection(subscriptionPosition);
+
+        int distanceRangePosition = distanceAdapter.getPosition(currentDistanceRange);
+        spinnerDistanceRange.setSelection(distanceRangePosition);
+
+        // Set the email from Intent
+        Intent intent = getIntent();
+        String emailFromIntent = intent.getStringExtra("email");
+        editTextEmail.setText(emailFromIntent);
 
         builder.setView(dialogView);
         final AlertDialog dialog = builder.create();
@@ -313,12 +357,12 @@ public class YourAdActivity extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String updatedSubscription = editTextSubscription.getText().toString().trim();
-                String updatedDistanceRange = editTextDistanceRange.getText().toString().trim();
+                String updatedSubscription = spinnerSubscription.getSelectedItem().toString().trim();
+                String updatedDistanceRange = spinnerDistanceRange.getSelectedItem().toString().trim();
                 String updatedLatitude = editTextLatitude.getText().toString().trim();
                 String updatedLongitude = editTextLongitude.getText().toString().trim();
                 String updatedEmail = editTextEmail.getText().toString().trim();
-                updateAdDetails(position, updatedSubscription, updatedDistanceRange, updatedEmail);
+                updateAdDetails(position, updatedSubscription, updatedDistanceRange, updatedLatitude, updatedLongitude, updatedEmail);
                 dialog.dismiss();
             }
         });
@@ -326,7 +370,7 @@ public class YourAdActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    private void updateAdDetails(final int position, final String subscription, final String distanceRange, final String email) {
+    private void updateAdDetails(final int position, final String subscription, final String distanceRange, final String latitude, final String longitude, final String email) {
         String adInfo = adInfos.get(position);
         String[] parts = adInfo.split("\n");
         String adId = parts[0].substring(parts[0].indexOf(": ") + 2);
@@ -340,11 +384,11 @@ public class YourAdActivity extends AppCompatActivity {
             public void run() {
                 try {
                     // Construct the URL with adId and query parameters
-                    String urlString = "http://192.168.184.71:8090/business/update-ad/" + adId +
+                    String urlString = Config.BASE_URL + "/business/update-ad/" + adId +
                             "?subscription=" + subscription +
                             "&distanceRange=" + distanceRange +
-                            "&latitude=" + "your_latitude_here" +
-                            "&longitude=" + "your_longitude_here" +
+                            "&latitude=" + latitude +
+                            "&longitude=" + longitude +
                             "&email=" + email;
                     URL url = new URL(urlString);
                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -358,6 +402,9 @@ public class YourAdActivity extends AppCompatActivity {
                             @Override
                             public void run() {
                                 Toast.makeText(YourAdActivity.this, "Ad details updated", Toast.LENGTH_SHORT).show();
+                                // Update the adInfos list with new details
+                                adInfos.set(position, "Ad ID: " + adId + "\n" + "Ad URL: " + parts[1].substring(parts[1].indexOf(": ") + 2) + "\n" + "Distance Range: " + distanceRange + "\n" + "Payment Amount: " + parts[3].substring(parts[3].indexOf(": ") + 2) + "\n" + "Subscription: " + subscription + "\n" + "Latitude: " + latitude + "\n" + "Longitude: " + longitude);
+                                adapter.notifyDataSetChanged();
                             }
                         });
                     } else {
@@ -383,3 +430,4 @@ public class YourAdActivity extends AppCompatActivity {
         }).start();
     }
 }
+

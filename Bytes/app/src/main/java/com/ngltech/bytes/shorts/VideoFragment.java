@@ -25,6 +25,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.ngltech.bytes.R;
+import com.ngltech.bytes.Config;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -175,7 +176,7 @@ public class VideoFragment extends Fragment {
             public void run() {
                 try {
                     // Make an HTTP POST request to like the video
-                    URL url = new URL("http://192.168.184.71:8090/api/like/" + videoId);
+                    URL url = new URL(Config.BASE_URL + "/api/like/" + videoId);
                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                     connection.setRequestMethod("PUT");
 
@@ -240,7 +241,7 @@ public class VideoFragment extends Fragment {
             @Override
             public void run() {
                 try {
-                    URL url = new URL("http://192.168.184.71:8090/api/bytes/" + videoId);
+                    URL url = new URL(Config.BASE_URL + "/api/bytes/" + videoId);
                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                     connection.setRequestMethod("GET");
 

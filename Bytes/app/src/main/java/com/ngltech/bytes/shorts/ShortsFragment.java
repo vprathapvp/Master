@@ -18,6 +18,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.ngltech.bytes.ads.AdsActivity;
 import com.ngltech.bytes.R;
+import com.ngltech.bytes.Config;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -88,7 +89,7 @@ public class ShortsFragment extends Fragment {
                     SharedPreferences sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                     String token = sharedPreferences.getString("token", "");
 
-                    URL url = new URL("http://192.168.184.71:8090/api/bytes");
+                    URL url = new URL(Config.BASE_URL + "/api/bytes");
                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                     connection.setRequestMethod("GET");
                     connection.setRequestProperty("Authorization", "Bearer " + token);

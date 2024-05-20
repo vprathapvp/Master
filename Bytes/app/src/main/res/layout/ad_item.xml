@@ -121,13 +121,35 @@
         android:layout_marginTop="8dp"
         android:padding="8dp"
         android:textColor="@android:color/black"
-        android:background="@drawable/edittext"/>
+        android:background="@drawable/edittext" />
+    <TextView
+        android:id="@+id/latitudeValueTextView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/subscriptionValueTextView"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/edittext"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/longitudeValueTextView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/latitudeValueTextView"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/edittext"
+        android:visibility="gone"/>
 
     <!-- Buttons Layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/subscriptionValueTextView"
+        android:layout_below="@id/longitudeValueTextView"
         android:orientation="horizontal"
         android:layout_marginTop="16dp">
 

@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ngltech.bytes.R;
+import com.ngltech.bytes.Config;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -69,7 +70,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             String result = "";
 
             try {
-                URL url = new URL("http://192.168.184.71:8090/forget-password/generateOTP");
+                URL url = new URL(Config.BASE_URL + "/forget-password/generateOTP");
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("POST");
                 conn.setRequestProperty("Content-Type", "application/json");
@@ -160,7 +161,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             String result = "";
 
             try {
-                URL url = new URL("http://192.168.184.71:8090/validateOTP");
+                URL url = new URL(Config.BASE_URL + "/validateOTP");
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("POST");
                 conn.setRequestProperty("Content-Type", "application/json");

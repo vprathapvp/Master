@@ -10,6 +10,7 @@ import android.widget.VideoView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ngltech.bytes.R;
+import com.ngltech.bytes.Config;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -62,7 +63,7 @@ public class AdsActivity extends AppCompatActivity {
                     String token = sharedPreferences.getString("token", "");
 
                     // Make an HTTP GET request to fetch ad details from the Spring Boot backend
-                    URL url = new URL("http://192.168.184.71:8090/business/api/ads");
+                    URL url = new URL(Config.BASE_URL + "/business/api/ads");
                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                     connection.setRequestMethod("GET");
 

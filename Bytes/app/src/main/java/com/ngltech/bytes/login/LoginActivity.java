@@ -1,5 +1,4 @@
 package com.ngltech.bytes.login;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -15,9 +14,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.ngltech.bytes.ads.AdUserActivity;
 import com.ngltech.bytes.MainActivity;
 import com.ngltech.bytes.R;
+import com.ngltech.bytes.ads.AdUserActivity;
+import com.ngltech.bytes.Config;
 import com.ngltech.bytes.signup.SignupActivity;
 
 import org.json.JSONException;
@@ -53,19 +53,13 @@ public class LoginActivity extends AppCompatActivity {
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, options);
-        // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
         roleSpinner.setAdapter(adapter);
 
         roleSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 // Display the selected item
-                String selectedRole = parent.getItemAtPosition(position).toString();
-                if (!selectedRole.equals("Select Role")) {
-
-                }
             }
 
             @Override
@@ -86,7 +80,6 @@ public class LoginActivity extends AppCompatActivity {
         forgotPasswordTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start the ForgotPasswordActivity
                 startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
             }
         });
@@ -104,17 +97,16 @@ public class LoginActivity extends AppCompatActivity {
         String username = etUsername.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
         String selectedRole = roleSpinner.getSelectedItem().toString();
-        String email = etUsername.getText().toString().trim(); // Fetch email from email EditText
 
         JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put("email", username); // Assuming email is used as username
+            jsonObject.put("email", username);
             jsonObject.put("password", password);
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        new LoginTask(selectedRole, email).execute(jsonObject.toString());
+        new LoginTask(selectedRole, username).execute(jsonObject.toString());
     }
 
     private class LoginTask extends AsyncTask<String, Void, String> {
@@ -130,7 +122,7 @@ public class LoginActivity extends AppCompatActivity {
         protected String doInBackground(String... params) {
             HttpURLConnection urlConnection = null;
             try {
-                URL url = new URL("http://192.168.184.71:8090/profile/login");
+                URL url = new URL(Config.BASE_URL + "/profile/login");
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setDoOutput(true);
                 urlConnection.setChunkedStreamingMode(0);
@@ -140,7 +132,6 @@ public class LoginActivity extends AppCompatActivity {
                 out.write(params[0].getBytes());
                 out.flush();
                 if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-
                     InputStream in = urlConnection.getInputStream();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(in));
                     StringBuilder response = new StringBuilder();
@@ -162,41 +153,43 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
 
-
         @Override
         protected void onPostExecute(String token) {
             if (token != null) {
-                // Save token to SharedPreferences or any other preferred storage method
                 saveToken(token);
+                saveLoggedInState(true); // Save logged in state in SharedPreferences
 
-                // Show toast message
                 Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
 
-                // If selected role is "Advertiser", start AdUserActivity
                 if (selectedRole.equals("User")) {
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    intent.putExtra("email", email); // Pass email to AdUserActivity
+                    intent.putExtra("email", email);
                     startActivity(intent);
                 } else if (selectedRole.equals("Advertiser")) {
-                    // Pass the email to MainActivity
                     Intent intent = new Intent(LoginActivity.this, AdUserActivity.class);
                     intent.putExtra("email", email);
                     startActivity(intent);
                 }
 
-                finish(); // Finish LoginActivity to prevent going back to it when pressing back button from MainActivity or AdUserActivity
+                finish();
             } else {
-                // Show toast message for failure
                 Toast.makeText(LoginActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
             }
         }
-
     }
 
-        private void saveToken(String token) {
+    private void saveToken(String token) {
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("token", token);
         editor.apply();
     }
+
+    private void saveLoggedInState(boolean isLoggedIn) {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences        .edit();
+        editor.putBoolean("isLoggedIn", isLoggedIn);
+        editor.apply();
+    }
 }
+

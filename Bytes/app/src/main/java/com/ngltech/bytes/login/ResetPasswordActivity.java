@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ngltech.bytes.R;
+import com.ngltech.bytes.Config;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -79,7 +80,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
                 String response = null;
 
                 try {
-                    URL url = new URL("http://192.168.184.71:8090/password"); // Note the http:// prefix
+                    URL url = new URL(Config.BASE_URL + "/password"); // Note the http:// prefix
                     urlConnection = (HttpURLConnection) url.openConnection();
                     urlConnection.setRequestMethod("PUT");
                     urlConnection.setRequestProperty("Content-Type", "application/json");

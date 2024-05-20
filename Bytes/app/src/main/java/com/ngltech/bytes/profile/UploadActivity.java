@@ -24,7 +24,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ngltech.bytes.R;
-
+import com.ngltech.bytes.Config;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -81,7 +81,7 @@ public class UploadActivity extends AppCompatActivity {
             public void run() {
                 try {
                     // Construct the URL with email included as a request parameter
-                    URL url = new URL("http://192.168.184.71:8090/api/bytes/byEmail?email=" + email);
+                    URL url = new URL(Config.BASE_URL + "/api/bytes/byEmail?email=" + email);
                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                     connection.setRequestMethod("GET");
 
@@ -225,7 +225,7 @@ public class UploadActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    URL url = new URL("http://192.168.184.71:8090/api/delete-bytes/" + videoId);
+                    URL url = new URL(Config.BASE_URL + "/api/delete-bytes/" + videoId);
                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                     connection.setRequestMethod("DELETE");
 
@@ -317,7 +317,7 @@ public class UploadActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    URL url = new URL("http://192.168.184.71:8090/api/update-details/" + videoId);
+                    URL url = new URL(Config.BASE_URL + "/api/update-details/" + videoId);
                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                     connection.setRequestMethod("PUT");
                     connection.setRequestProperty("Content-Type", "application/json");

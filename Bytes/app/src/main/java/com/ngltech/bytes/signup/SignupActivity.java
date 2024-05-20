@@ -25,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.ngltech.bytes.R;
+import com.ngltech.bytes.Config;
 import com.ngltech.bytes.login.LoginActivity;
 
 import org.json.JSONException;
@@ -180,7 +181,7 @@ public class SignupActivity extends AppCompatActivity {
         protected String doInBackground(String... params) {
             HttpURLConnection urlConnection = null;
             try {
-                URL url = new URL("http://192.168.184.71:8090/signup/generateOTP");
+                URL url = new URL(Config.BASE_URL + "/signup/generateOTP");
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("POST");
                 urlConnection.setRequestProperty("Content-Type", "application/json");
@@ -307,7 +308,7 @@ public class SignupActivity extends AppCompatActivity {
         protected String doInBackground(String... params) {
             HttpURLConnection urlConnection = null;
             try {
-                URL url = new URL("http://192.168.184.71:8090/signup/create-profile");
+                URL url = new URL(Config.BASE_URL + "/signup/create-profile");
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setDoOutput(true);
                 urlConnection.setChunkedStreamingMode(0);
@@ -353,7 +354,7 @@ public class SignupActivity extends AppCompatActivity {
         protected String doInBackground(String... params) {
             HttpURLConnection urlConnection = null;
             try {
-                URL url = new URL("http://192.168.184.71:8090/validateOTP");
+                URL url = new URL(Config.BASE_URL + "/validateOTP");
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("POST");
                 urlConnection.setRequestProperty("Content-Type", "application/json");
