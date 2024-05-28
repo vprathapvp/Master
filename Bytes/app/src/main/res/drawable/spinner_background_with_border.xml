@@ -1,0 +1,15 @@
+<!-- spinner_background_with_border.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background with Border -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#ffffff" />
+            <corners android:radius="8dp" />
+            <stroke android:color="#CCD0FF" android:width="1dp"/>
+        </shape>
+    </item>
+    <!-- Triangle Drawable (Positioned on top, centered horizontally) -->
+    <item
+        android:drawable="@drawable/triangle"
+        android:gravity="right|center_vertical"/> <!-- Adjust gravity to position the triangle as needed -->
+</layer-list>
