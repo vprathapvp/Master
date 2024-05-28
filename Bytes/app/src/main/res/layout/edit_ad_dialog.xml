@@ -9,6 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Subscription"
+        android:layout_marginTop="20dp"
         android:textStyle="bold"
         android:textColor="#2f3363"
         android:textSize="18sp"/>
@@ -18,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:textSize="18sp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="15dp"
         android:padding="8dp"
         android:textColor="@android:color/black"
         android:background="@drawable/edittext"/>
@@ -26,7 +27,7 @@
         android:id="@+id/distanceRange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:text="Distance Range"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -37,19 +38,19 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:textSize="18sp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="15dp"
         android:padding="8dp"
         android:textColor="@android:color/black"
         android:background="@drawable/edittext"/>
-    <TextView
-        android:id="@+id/latitude"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Latitude"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="#2f3363"/>
+<!--    <TextView-->
+<!--        android:id="@+id/latitude"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:text="Latitude"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textColor="#2f3363"/>-->
 
     <EditText
         android:id="@+id/editTextLatitude"
@@ -59,17 +60,18 @@
         android:layout_marginTop="8dp"
         android:padding="8dp"
         android:textColor="@android:color/black"
-        android:background="@drawable/edittext"/>
+        android:background="@drawable/edittext"
+        android:visibility="gone"/>
 
-    <TextView
-        android:id="@+id/longitude"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Longitude"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="#2f3363"/>
+<!--    <TextView-->
+<!--        android:id="@+id/longitude"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:text="Longitude"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textColor="#2f3363"/>-->
 
     <EditText
         android:id="@+id/editTextLongitude"
@@ -79,13 +81,14 @@
         android:layout_marginTop="8dp"
         android:padding="8dp"
         android:textColor="@android:color/black"
-        android:background="@drawable/edittext"/>
+        android:background="@drawable/edittext"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:text="Email"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -96,18 +99,18 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:textSize="18sp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="15dp"
         android:padding="8dp"
         android:textColor="@android:color/black"
         android:background="@drawable/edittext"/>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/saveButton"
         android:layout_width="130dp"
         android:layout_height="40dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="25dp"
         android:layout_gravity="center"
-        android:text="Save"
+        android:text="Update"
         android:textColor="#ffffff"
         android:background="@drawable/background_btn_2"/>
 

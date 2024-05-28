@@ -241,7 +241,8 @@ public class VideoFragment extends Fragment {
             @Override
             public void run() {
                 try {
-                    URL url = new URL(Config.BASE_URL + "/api/bytes/" + videoId);
+                    // Construct the URL for downloading the video using the videoId
+                    URL url = new URL(Config.BASE_URL + "/api/files/download/" + videoId);
                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                     connection.setRequestMethod("GET");
 
@@ -292,5 +293,4 @@ public class VideoFragment extends Fragment {
             }
         }).start();
     }
-
 }

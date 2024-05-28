@@ -19,7 +19,7 @@
             android:layout_height="100dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="60dp"
-            android:text="     Login To Your Account"
+            android:text="     𝑳𝒐𝒈𝒊𝒏 𝒕𝒐 𝒀𝒐𝒖𝒓 𝑨𝒄𝒄𝒐𝒖𝒏𝒕"
             android:textColor="#ffffff"
             android:textSize="33sp"
             android:textStyle="bold" />
@@ -27,7 +27,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/women1" />
+            android:src="@drawable/login" />
     </LinearLayout>
 
     <LinearLayout
@@ -54,8 +54,9 @@
             android:layout_marginLeft="32dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="32dp"
-            android:background="@drawable/edittext"
+            android:background="@drawable/spinner_background_with_border"
             android:padding="8dp"
+            android:paddingEnd="10dp"
             android:textSize="16sp"
             android:textColor="#a2a4b5"
             android:textStyle="bold" />
@@ -80,12 +81,11 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="32dp"
             android:background="@drawable/edittext"
-            android:ems="10"
             android:textStyle="bold"
-            android:hint="Enter Your User Name"
-            android:inputType="textPersonName"
+            android:hint="abc@email.com"
+            android:inputType="textEmailAddress"
             android:padding="8dp"
-            android:textColor="#a2a4b5"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
 
@@ -107,13 +107,13 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="32dp"
             android:background="@drawable/edittext"
-            android:ems="10"
-            android:hint="Enter Your Password"
+            android:hint="Abc@123"
             android:inputType="textPassword"
             android:padding="8dp"
             android:textStyle="bold"
-            android:textColor="#a2a4b5"
-            android:textSize="16sp" />
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:drawableRight="@drawable/view_password"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -126,7 +126,6 @@
             android:textColor="#2f3363"
             android:textSize="18sp"
             android:textStyle="bold"/>
-
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/loginbtn"
@@ -144,6 +143,8 @@
             android:textSize="22sp"
             android:textStyle="bold" />
 
+
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/registerbtn"
             style="@android:style/Widget.Button"
@@ -155,7 +156,7 @@
             android:layout_marginBottom="40dp"
             android:background="@drawable/background_btn"
             android:padding="4dp"
-            android:text="dont have an account? Register"
+            android:text="don't have an account? Register"
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold" />

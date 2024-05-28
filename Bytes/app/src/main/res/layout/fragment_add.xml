@@ -21,15 +21,16 @@
                 android:layout_height="100dp"
                 android:layout_marginTop="60dp"
                 android:paddingLeft="30dp"
-                android:text="Video Upload"
+                android:text="𝐔𝐩𝐥𝐨𝐚𝐝   𝐘𝐨𝐮𝐫 𝐕𝐢𝐝𝐞𝐨"
                 android:textColor="#ffffff"
                 android:textSize="33sp"
                 android:textStyle="bold" />
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/women2" />
+                android:layout_height="150dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/upload" />
         </LinearLayout>
 
         <LinearLayout

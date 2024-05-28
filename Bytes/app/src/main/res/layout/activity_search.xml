@@ -12,7 +12,7 @@
         android:id="@+id/toolbar"
         app:titleTextColor="#ffffff"
         android:background="@drawable/gradient"
-        app:title="B Y T E S"
+        app:title="𝐁 𝐘 𝐓 𝐄 𝐒"
         app:titleMarginStart="160dp"
         android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>

@@ -15,7 +15,7 @@
         <TextView
             android:layout_width="350dp"
             android:layout_height="55dp"
-            android:text="B  Y  T  E  S"
+            android:text="𝐁 𝐘 𝐓 𝐄 𝐒"
             android:textAlignment="center"
             android:textColor="#ffffff"
             android:layout_marginTop="9dp"

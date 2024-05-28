@@ -19,14 +19,14 @@
             android:layout_height="100dp"
             android:layout_marginTop="60dp"
             android:paddingLeft="30dp"
-            android:text="   Your Uploads"
+            android:text="   𝐘𝐨𝐮𝐫 𝐔𝐩𝐥𝐨𝐚𝐝𝐬"
             android:textColor="#ffffff"
             android:textSize="33sp"
             android:textStyle="bold"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/women2" />
+            android:src="@drawable/uploads" />
     </LinearLayout>
     <EditText
         android:layout_width="match_parent"

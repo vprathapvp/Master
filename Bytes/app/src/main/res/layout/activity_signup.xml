@@ -19,7 +19,7 @@
             android:layout_height="100dp"
             android:paddingLeft="30dp"
             android:layout_marginTop="20dp"
-            android:text="Create Account"
+            android:text="𝑪 𝒓 𝒆 𝒂 𝒕 𝒆      𝑨 𝒄 𝒄 𝒐 𝒖 𝒏 𝒕"
             android:textColor="#ffffff"
             android:textSize="33sp"
             android:textStyle="bold"/>
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:text="First Name"
             android:layout_marginLeft="32dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="25dp"
             android:textStyle="bold"
             android:textColor="#2f3363"
             android:textSize="18sp"/>
@@ -58,13 +58,13 @@
             android:hint="Enter Your First Name"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="15dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Last Name"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="32dp"
             android:textStyle="bold"
             android:textColor="#2f3363"
@@ -84,13 +84,13 @@
             android:inputType="textPersonName"
             android:hint="Enter Your Last Name"
             android:textSize="16sp"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="15dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Email"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="32dp"
             android:textStyle="bold"
             android:textColor="#2f3363"
@@ -110,13 +110,13 @@
             android:inputType="textEmailAddress"
             android:hint="Enter Your Email"
             android:textSize="16sp"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="15dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Password"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="32dp"
             android:textStyle="bold"
             android:textColor="#2f3363"
@@ -136,13 +136,13 @@
             android:inputType="textPassword"
             android:hint="Enter Your Password"
             android:textSize="16sp"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="15dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Confirm Password"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="32dp"
             android:textStyle="bold"
             android:textColor="#2f3363"
@@ -162,7 +162,7 @@
             android:inputType="textVisiblePassword"
             android:hint="Enter Your Password Again"
             android:textSize="16sp"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="15dp"/>
 
 
         <LinearLayout
@@ -203,7 +203,7 @@
             android:textColor="#ffffff"
             android:textSize="22sp"
             android:textStyle="bold"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="40dp"
             android:id="@+id/newregisterbtn"
             android:text="Register"
