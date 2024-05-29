@@ -7,18 +7,18 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.ngltech.bytes.ads.AdsActivity;
 import com.ngltech.bytes.R;
 import com.ngltech.bytes.Config;
+import com.ngltech.bytes.ads.AdsActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,7 +39,7 @@ public class ShortsFragment extends Fragment {
     private List<VideoDetails> videoDetailsList = new ArrayList<>();
     private VideoPagerAdapter pagerAdapter;
 
-    private Button searchButton;
+    private AppCompatImageButton searchButton;
     private int swipeCounter = 0;
 
     @Override
@@ -57,11 +57,9 @@ public class ShortsFragment extends Fragment {
         fetchVideoDetails();
 
         searchButton = view.findViewById(R.id.searchButton);
-
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start SearchActivity when search button is clicked
                 Intent intent = new Intent(getActivity(), SearchActivity.class);
                 startActivity(intent);
             }
@@ -109,12 +107,13 @@ public class ShortsFragment extends Fragment {
                             String videoUrl = jsonObject.getString("url");
                             String name = jsonObject.getString("name");
                             String description = jsonObject.getString("description");
+                            String firstName = jsonObject.getString("firstname");
+                            String lastName = jsonObject.getString("lastname");
 
-                            VideoDetails videoDetails = new VideoDetails(videoId, videoUrl, name, description);
+                            VideoDetails videoDetails = new VideoDetails(videoId, videoUrl, name, description, firstName, lastName);
                             videoDetailsList.add(videoDetails);
                         }
 
-                        // Shuffle the list of video details
                         Collections.shuffle(videoDetailsList);
 
                         requireActivity().runOnUiThread(new Runnable() {
@@ -146,43 +145,21 @@ public class ShortsFragment extends Fragment {
         }).start();
     }
 
-    private static class VideoPagerAdapter extends FragmentStateAdapter {
-
-        private final List<VideoDetails> videoDetailsList;
-
-        public VideoPagerAdapter(@NonNull Fragment fragment, List<VideoDetails> videoDetailsList) {
-            super(fragment);
-            this.videoDetailsList = videoDetailsList;
-        }
-
-        @NonNull
-        @Override
-        public Fragment createFragment(int position) {
-            if (position >= 0 && position < videoDetailsList.size()) {
-                VideoDetails videoDetails = videoDetailsList.get(position);
-                return VideoFragment.newInstance(videoDetails.getUrl(), videoDetails.getName(), videoDetails.getDescription(), videoDetails.getId(), "", "", "");
-            } else {
-                return null;
-            }
-        }
-
-        @Override
-        public int getItemCount() {
-            return videoDetailsList.size();
-        }
-    }
-
     private static class VideoDetails {
         private String id;
         private String url;
         private String name;
         private String description;
+        private String firstName;
+        private String lastName;
 
-        public VideoDetails(String id, String url, String name, String description) {
+        public VideoDetails(String id, String url, String name, String description, String firstName, String lastName) {
             this.id = id;
             this.url = url;
             this.name = name;
             this.description = description;
+            this.firstName = firstName;
+            this.lastName = lastName;
         }
 
         public String getId() {
@@ -199,6 +176,41 @@ public class ShortsFragment extends Fragment {
 
         public String getDescription() {
             return description;
+        }
+
+        public String getFirstName() {
+            return firstName;
+        }
+
+        public String getLastName() {
+            return lastName;
+        }
+    }
+
+    private static class VideoPagerAdapter extends FragmentStateAdapter {
+
+        private final List<VideoDetails> videoDetailsList;
+
+        public VideoPagerAdapter(@NonNull Fragment fragment, List<VideoDetails> videoDetailsList) {
+            super(fragment);
+            this.videoDetailsList = videoDetailsList;
+        }
+
+        @NonNull
+        @Override
+        public Fragment createFragment(int position) {
+            if (position >= 0 && position < videoDetailsList.size()) {
+                VideoDetails videoDetails = videoDetailsList.get(position);
+                return VideoFragment.newInstance(videoDetails.getUrl(), videoDetails.getName(), videoDetails.getDescription(),
+                        videoDetails.getId(), videoDetails.getFirstName(), videoDetails.getLastName(), "");
+            } else {
+                return null;
+            }
+        }
+
+        @Override
+        public int getItemCount() {
+            return videoDetailsList.size();
         }
     }
 }

@@ -12,24 +12,24 @@
         android:background="@drawable/gradient"
         android:orientation="horizontal">
 
+
         <TextView
             android:layout_width="350dp"
             android:layout_height="55dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="9dp"
             android:text="𝐁 𝐘 𝐓 𝐄 𝐒"
             android:textAlignment="center"
             android:textColor="#ffffff"
-            android:layout_marginTop="9dp"
             android:textSize="25sp"
             android:textStyle="bold" />
 
-
-        <Button
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/searchButton"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="9dp"
-
-            android:background="@drawable/baseline_search_20" />
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/find_icon" />
     </LinearLayout>
 
     <androidx.viewpager2.widget.ViewPager2
