@@ -21,7 +21,8 @@
         android:hint="Enter OTP"
         android:inputType="number"
         android:maxLength="6"
-        android:padding="12dp" />
+        android:padding="12dp"
+        android:background="@drawable/edittext"/>
 
 
 </RelativeLayout>

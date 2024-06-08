@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:ignore="ExtraText">
+    tools:ignore="ExtraText"
+    tools:context=".ads.YourAdActivity">
 
     <!-- Your top LinearLayout containing design and women cartoons -->
     <LinearLayout
@@ -14,7 +15,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/uploads"
+            android:id="@+id/ads"
             android:layout_width="228dp"
             android:layout_height="100dp"
             android:layout_marginTop="60dp"
@@ -29,20 +30,18 @@
             android:layout_marginTop="13dp"
             android:src="@drawable/ads" />
     </LinearLayout>
-    <EditText
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginTop="10dp"
         android:id="@+id/editTextgmail"
-        android:background="@drawable/edittext"
         android:layout_below="@id/l1"
-        android:enabled="false"
         android:textStyle="bold"
         android:padding="8dp"
         android:textSize="20sp"
-        android:textColor="@color/black"
+        android:textColor="#2f3363"
         android:textAlignment="center"/>
 
     <!-- Your ListView positioned below the top LinearLayout -->
@@ -52,6 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextgmail"
         android:padding="18dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"/>
 
 </RelativeLayout>

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:ignore="ExtraText">
 
-    <!-- Your top LinearLayout containing design and women cartoons -->
+
     <LinearLayout
         android:id="@+id/l1"
         android:layout_width="match_parent"

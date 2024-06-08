@@ -14,6 +14,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -67,7 +68,21 @@ public class SignupActivity extends AppCompatActivity {
         etOTP = findViewById(R.id.etEnteredOTP);
         btnRegister = findViewById(R.id.newregisterbtn);
         progressBar = findViewById(R.id.progressBar);
-
+// Set a touch listener on the password EditText
+        etPassword.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int DRAWABLE_RIGHT = 2;
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (event.getRawX() >= (etPassword.getRight() - etPassword.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        // Info icon clicked, show toast message
+                        Toast.makeText(SignupActivity.this, "Password must be at least 6 characters long and Password must contain at least one letter, one number, and one special character", Toast.LENGTH_LONG).show();
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -181,7 +196,7 @@ public class SignupActivity extends AppCompatActivity {
         protected String doInBackground(String... params) {
             HttpURLConnection urlConnection = null;
             try {
-                URL url = new URL(Config.BASE_URL + "/signup/generateOTP");
+                URL url = new URL(Config.BASE_URL + "/signup/generate-otp");
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("POST");
                 urlConnection.setRequestProperty("Content-Type", "application/json");

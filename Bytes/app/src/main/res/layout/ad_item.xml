@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="20dp">
+    android:padding="20dp"
+    android:background="@drawable/edittext">
 
     <!-- Ad ID Label -->
     <TextView
@@ -10,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:text="Ad ID"
+        android:text="Ad ID  "
         android:textStyle="bold"
         android:textColor="#2f3363"
         android:textSize="18sp"/>
@@ -23,9 +24,9 @@
         android:layout_below="@id/adIdLabel"
         android:textSize="18sp"
         android:layout_marginTop="8dp"
-        android:padding="8dp"
-        android:textColor="@android:color/black"
-        android:background="@drawable/edittext"/>
+        android:paddingLeft="30dp"
+        android:paddingTop="8dp"
+        android:textColor="@android:color/black" />
 
     <!-- Ad URL Label -->
     <TextView
@@ -34,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/adIdTextView"
         android:layout_marginTop="8dp"
-        android:text="Ad URL"
+        android:text="Ad URL  "
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="#2f3363"/>
@@ -43,13 +44,13 @@
     <TextView
         android:id="@+id/adUrlTextView"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_below="@id/adUrlLabel"
         android:textSize="16sp"
         android:layout_marginTop="8dp"
-        android:padding="8dp"
-        android:textColor="@android:color/black"
-        android:background="@drawable/edittext"/>
+        android:paddingLeft="30dp"
+        android:paddingTop="8dp"
+        android:textColor="@android:color/black" />
 
     <!-- Distance Range Label -->
     <TextView
@@ -58,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/adUrlTextView"
         android:layout_marginTop="8dp"
-        android:text="Distance Range"
+        android:text="Distance Range  "
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="#2f3363"/>
@@ -71,9 +72,9 @@
         android:layout_below="@id/distanceRangeLabel"
         android:textSize="16sp"
         android:layout_marginTop="8dp"
-        android:padding="8dp"
-        android:textColor="@android:color/black"
-        android:background="@drawable/edittext"/>
+        android:paddingLeft="30dp"
+        android:paddingTop="8dp"
+        android:textColor="@android:color/black" />
 
     <!-- Payment Amount Label -->
     <TextView
@@ -82,7 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/distanceRangeValueTextView"
         android:layout_marginTop="8dp"
-        android:text="Payment Amount"
+        android:text="Payment Amount  "
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="#2f3363"/>
@@ -95,9 +96,9 @@
         android:layout_below="@id/paymentAmountLabel"
         android:textSize="16sp"
         android:layout_marginTop="8dp"
-        android:padding="8dp"
-        android:textColor="@android:color/black"
-        android:background="@drawable/edittext"/>
+        android:paddingLeft="30dp"
+        android:paddingTop="8dp"
+        android:textColor="@android:color/black" />
 
     <!-- Subscription Label -->
     <TextView
@@ -106,7 +107,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/paymentAmountValueTextView"
         android:layout_marginTop="8dp"
-        android:text="Subscription"
+        android:text="Subscription  "
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="#2f3363"/>
@@ -119,9 +120,9 @@
         android:layout_below="@id/subscriptionLabel"
         android:textSize="16sp"
         android:layout_marginTop="8dp"
-        android:padding="8dp"
-        android:textColor="@android:color/black"
-        android:background="@drawable/edittext" />
+        android:paddingLeft="30dp"
+        android:paddingTop="8dp"
+        android:textColor="@android:color/black" />
     <TextView
         android:id="@+id/latitudeValueTextView"
         android:layout_width="match_parent"

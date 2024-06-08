@@ -20,24 +20,29 @@
     <LinearLayout
         android:id="@+id/l1"
         android:layout_width="match_parent"
-        android:layout_height="230dp"
+        android:layout_height="250dp"
         android:background="@drawable/top_background"
-        android:gravity="center"
         android:orientation="horizontal"
         android:layout_below="@+id/adhead">
 
+
         <TextView
-            android:id="@+id/signin"
-            android:layout_width="match_parent"
+            android:id="@+id/uploads"
+            android:layout_width="226dp"
             android:layout_height="100dp"
-            android:layout_marginLeft="45dp"
-            android:text="Welcome Advertiser"
+            android:layout_marginTop="60dp"
+            android:paddingLeft="30dp"
+            android:text=" Welcome Advertiser"
             android:textColor="#ffffff"
-            android:textSize="35sp"
+            android:textSize="33sp"
             android:textStyle="bold" />
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/advertiser" />
     </LinearLayout>
-
     <LinearLayout
         android:id="@+id/l2"
         android:layout_width="match_parent"
@@ -61,6 +66,7 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
+
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/upload_ad_btn"

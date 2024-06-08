@@ -39,13 +39,18 @@
     <EditText
         android:id="@+id/editTextVideoDescription"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="100dp"
         android:layout_below="@id/name"
         android:textSize="18sp"
         android:layout_marginTop="8dp"
         android:padding="8dp"
         android:textColor="@android:color/black"
-        android:background="@drawable/edittext"/>
+        android:background="@drawable/edittext"
+        android:inputType="textMultiLine"
+        android:gravity="top"
+        android:minLines="3"
+        android:maxLines="6"
+        android:scrollbars="vertical"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/saveButton"

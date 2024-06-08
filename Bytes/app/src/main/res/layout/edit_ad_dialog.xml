@@ -92,7 +92,8 @@
         android:text="Email"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="#2f3363"/>
+        android:textColor="#2f3363"
+        android:visibility="gone"/>
 
     <EditText
         android:id="@+id/editTextEmail"
@@ -102,7 +103,8 @@
         android:layout_marginTop="15dp"
         android:padding="8dp"
         android:textColor="@android:color/black"
-        android:background="@drawable/edittext"/>
+        android:background="@drawable/edittext"
+        android:visibility="gone"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/saveButton"

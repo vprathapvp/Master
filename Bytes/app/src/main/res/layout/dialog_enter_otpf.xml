@@ -6,8 +6,10 @@
     <EditText
         android:id="@+id/editTextOTP"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_margin="16dp"
-        android:hint="Enter OTP"/>
+        android:hint="Enter OTP"
+        android:paddingLeft="10dp"
+        android:background="@drawable/edittext"/>
 
 </RelativeLayout>

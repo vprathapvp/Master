@@ -9,7 +9,7 @@
         <LinearLayout
             android:id="@+id/l1"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="200dp"
             android:background="@drawable/top_background"
             android:orientation="horizontal">
 
@@ -41,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="30dp"
                 android:text="First Name"
                 android:textColor="#2f3363"
                 android:textSize="18sp"
@@ -110,21 +110,7 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/locationbtn"
-                style="@android:style/Widget.Button"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/background_btn"
-                android:padding="4dp"
-                android:text="Click here to Update With Current Location"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+
             <EditText
                 android:id="@+id/latitude"
                 android:layout_width="match_parent"
@@ -152,7 +138,8 @@
                 android:textColor="#6672FF"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:visibility="gone"/>
+                android:visibility="gone"
+                />
 
 
             <androidx.appcompat.widget.AppCompatButton
@@ -161,7 +148,7 @@
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="10dp"
                 android:layout_gravity="center_horizontal"
@@ -179,7 +166,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="5dp"
                 android:background="@drawable/background_btn"

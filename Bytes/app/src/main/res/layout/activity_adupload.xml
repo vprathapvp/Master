@@ -52,7 +52,7 @@
             android:layout_marginLeft="32dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="32dp"
-            android:background="@drawable/edittext"
+            android:background="@drawable/spinner_background_with_border"
             android:padding="8dp"
             android:textColor="#a2a4b5"
             android:textSize="16sp"
@@ -75,7 +75,7 @@
             android:layout_marginLeft="32dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="32dp"
-            android:background="@drawable/edittext"
+            android:background="@drawable/spinner_background_with_border"
             android:padding="8dp"
             android:textColor="#a2a4b5"
             android:textSize="16sp"
@@ -111,7 +111,8 @@
             android:text="Email"
             android:textColor="#2f3363"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:visibility="gone" />
 
         <EditText
             android:id="@+id/email_edit_text"
@@ -124,7 +125,8 @@
             android:enabled="false"
             android:padding="8dp"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:visibility="gone" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/buttonSelectVideo"
@@ -132,7 +134,7 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/background_btn"
@@ -145,12 +147,10 @@
         <TextView
             android:id="@+id/textViewSelectedVideo"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
-            android:background="@drawable/edittext"
-            android:ems="10"
-            android:inputType="textPersonName"
             android:padding="8dp"
             android:text="No Video Selected"
             android:textAlignment="center"
@@ -164,7 +164,7 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="40dp"
             android:background="@drawable/background_btn_2"

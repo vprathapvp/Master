@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="20dp">
+    android:padding="20dp"
+    android:background="@drawable/edittext">
 
     <!-- Name TextView -->
     <TextView
@@ -19,13 +20,13 @@
     <TextView
         android:id="@+id/nameTextView"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/name"
         android:textSize="18sp"
         android:layout_marginTop="8dp"
-        android:padding="8dp"
-        android:textColor="@android:color/black"
-        android:background="@drawable/edittext"/>
+        android:paddingLeft="30dp"
+        android:paddingTop="8dp"
+        android:textColor="@android:color/black" />
 
     <!-- Description TextView -->
     <TextView
@@ -43,13 +44,13 @@
     <TextView
         android:id="@+id/descriptionTextView"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/description"
         android:textSize="16sp"
         android:layout_marginTop="8dp"
-        android:padding="8dp"
-        android:textColor="@android:color/black"
-        android:background="@drawable/edittext"/>
+        android:paddingLeft="30dp"
+        android:paddingTop="8dp"
+        android:textColor="@android:color/black"/>
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -63,7 +64,7 @@
         android:layout_height="40dp"
         android:layout_below="@id/descriptionTextView"
         android:layout_marginTop="16dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginRight="40dp"
         android:text="Edit Video"
         android:textColor="@color/black"
         android:background="@drawable/background_btn"/>
