@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/l1"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/top_background"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/uploads"
+                android:layout_width="226dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="60dp"
+                android:paddingLeft="30dp"
+                android:text="𝐔𝐩𝐥𝐨𝐚𝐝   𝐘𝐨𝐮𝐫 𝐕𝐢𝐝𝐞𝐨"
+                android:textColor="#ffffff"
+                android:textSize="33sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/upload" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/l2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/l1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="25dp"
+                android:text="Your Email"
+                android:textColor="#2f3363"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editTextEmail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/edittext"
+                android:textStyle="bold"
+                android:padding="8dp"
+                android:textColor="#a2a4b5"
+                android:textSize="16sp"
+                android:enabled="false"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="25dp"
+                android:text="Description"
+                android:textColor="#2f3363"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editTextDescription"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/edittext"
+                android:ems="10"
+                android:textStyle="bold"
+                android:padding="8dp"
+                android:textColor="#a2a4b5"
+                android:textSize="16sp"
+                android:inputType="textMultiLine"
+                android:gravity="top"
+                android:minLines="3"
+                android:maxLines="6"
+                android:scrollbars="vertical"/>
+
+            <EditText
+                android:id="@+id/latitude"
+                android:layout_width="155dp"
+                android:layout_height="wrap_content"
+                android:hint="Latitude"
+                android:background="@drawable/edittext"
+                android:padding="8dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"/>
+            <EditText
+                android:id="@+id/longitude"
+                android:layout_width="155dp"
+                android:layout_height="wrap_content"
+                android:hint="longitude"
+                android:background="@drawable/edittext"
+                android:padding="8dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"/>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonSelectVideo"
+                style="@android:style/Widget.Button"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/background_btn"
+                android:padding="4dp"
+                android:text="Select Video"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewSelectedVideo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="5dp"
+                android:textColor="#2f3363"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="4dp"
+                style="@android:style/Widget.Button"
+                android:textColor="#ffffff"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="40dp"
+                android:id="@+id/buttonUpload"
+                android:text="Upload Video"
+                android:background="@drawable/background_btn_2"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                />
+
+
+        </LinearLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="200dp"
+                android:visibility="gone"
+                style="?android:attr/progressBarStyleLarge" />
+        </FrameLayout>
+
+    </RelativeLayout>
+</ScrollView>
