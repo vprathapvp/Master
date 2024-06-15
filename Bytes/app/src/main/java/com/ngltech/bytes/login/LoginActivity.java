@@ -208,8 +208,9 @@ public class LoginActivity extends AppCompatActivity {
     private void saveToken(String token) {
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("token", token);
-        editor.apply();
+        editor.putString("token", token);    
+        editor.apply(); 
+
     }
 
     private void saveLoggedInState(boolean isLoggedIn) {
